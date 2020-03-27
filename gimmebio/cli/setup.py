@@ -1,16 +1,17 @@
 from setuptools import setup
 
-microlib_name = 'gimmebio.seqs'
+microlib_name = 'gimmebio.cli'
 
 requirements = [
+    'scipy',
     'numpy',
-    'click',
     'pandas',
+    'click',
 ]
 
 setup(
     name=microlib_name,
-    version='0.9.3',
+    version='0.1.5',
     author='David Danko',
     author_email='dcdanko@gmail.com',
     license='MIT license',
@@ -19,6 +20,11 @@ setup(
         'Natural Language :: English',
         'Programming Language :: Python :: 3.6',
     ],
+    entry_points={
+        'console_scripts': [
+            'gimmebio=gimmebio.cli.cli:main'
+        ]
+    },
     namespace_packages=['gimmebio'],
     packages=[microlib_name],
     install_requires=requirements,
